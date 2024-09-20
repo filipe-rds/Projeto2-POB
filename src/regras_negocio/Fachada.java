@@ -7,13 +7,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-import daodb4o.DAO;
-import daodb4o.DAOVeiculo;
-import daodb4o.DAORegistro;
-import daodb4o.DAOArrecadacao;
-import modelo.Veiculo;
-import modelo.Registro;
-import modelo.Arrecadacao;
+import daojpa.*;
+import modelo.*;
 
 
 public class Fachada {
@@ -156,7 +151,6 @@ public class Fachada {
 
         DAO.begin();
 
-        //int id = daoaregistro.gerarId();
 
         Veiculo veiculo = buscarVeiculo(placa);
 

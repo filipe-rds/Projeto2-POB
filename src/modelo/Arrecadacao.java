@@ -15,30 +15,22 @@ public class Arrecadacao {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private LocalDate data;
+	private String data;
 	private double total;
 	
 	public Arrecadacao (String dataString) {
-
-
-		// Formatter para o formato "dd/MM/yyyy"
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        // Parsing da string para obter um objeto LocalDate
-        LocalDate dataFormatada = LocalDate.parse(dataString, formatter);
-
-		this.data = dataFormatada;
+		this.data = dataString;
 		this.total = 0.0;
 	}
 	
 	public Arrecadacao () {}
 	
 	
-	public LocalDate getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 

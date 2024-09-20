@@ -12,7 +12,7 @@ public class Cadastrar {
     String dataString = dataAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
     try {
-      Fachada.cadastrarArrecadacao(dataString);
+      //Fachada.cadastrarArrecadacao(dataString);
 
       // Cadastro de veículos
       Fachada.cadastrarVeiculo("ABC-1234");
