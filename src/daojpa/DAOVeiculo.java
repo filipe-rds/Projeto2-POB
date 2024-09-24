@@ -26,7 +26,7 @@ public class DAOVeiculo extends DAO<Veiculo>{
 
     @Override
     public List<Veiculo> readAll() {
-        TypedQuery<Veiculo> query = manager.createQuery("select v from Veiculo", Veiculo.class);
+        TypedQuery<Veiculo> query = manager.createQuery("select v from Veiculo v", Veiculo.class);
         return query.getResultList();
     }
 
