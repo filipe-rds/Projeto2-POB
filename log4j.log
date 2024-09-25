@@ -1,66 +1,97 @@
-22:43:15,096  INFO Util:28 - ----conectar banco - lendo arquivo de propriedades 
-22:43:15,100  INFO Util:33 - sgbd => postgresql
-22:43:15,100  INFO Util:34 - banco => estacionamento
-22:43:15,101  INFO Util:35 - ip => localhost
-22:43:15,101  INFO Util:40 - ----configurando postgresql
-22:43:15,128 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-22:43:15,223  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
-22:43:15,268  INFO Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
-22:43:15,300 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
-22:43:15,301  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
-22:43:15,539  WARN pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
-22:43:15,543  INFO pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
-22:43:15,543  INFO pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/estacionamento]
-22:43:15,543  INFO pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
-22:43:15,543  INFO pooling:171 - HHH10001003: Autocommit mode: false
-22:43:15,545  INFO pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
-22:43:16,739  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-22:43:16,755  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@488bca22] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-22:43:30,332 DEBUG SQL:135 - select r1_0.id,r1_0.datahora,r1_0.tipo,r1_0.veiculo_placa from Registro r1_0 where r1_0.datahora between ? and ?
-22:43:30,333 TRACE bind:24 - binding parameter (1:TIMESTAMP) <- [2024-09-20T00:00]
-22:43:30,334 TRACE bind:24 - binding parameter (2:TIMESTAMP) <- [2024-09-20T23:59:59]
-22:43:38,043 DEBUG SQL:135 - select r1_0.id,r1_0.datahora,r1_0.tipo,r1_0.veiculo_placa from Registro r1_0 where r1_0.datahora between ? and ?
-22:43:38,043 TRACE bind:24 - binding parameter (1:TIMESTAMP) <- [2024-09-19T00:00]
-22:43:38,044 TRACE bind:24 - binding parameter (2:TIMESTAMP) <- [2024-09-19T23:59:59]
-22:43:38,053 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,054 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC-1234]
-22:43:38,066 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,067 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF-5678]
-22:43:38,068 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,068 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI-9012]
-22:43:38,069 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,070 TRACE bind:24 - binding parameter (1:VARCHAR) <- [JKL-3456]
-22:43:38,071 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,071 TRACE bind:24 - binding parameter (1:VARCHAR) <- [MNO-7890]
-22:43:38,072 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,072 TRACE bind:24 - binding parameter (1:VARCHAR) <- [PQR-2345]
-22:43:38,073 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,073 TRACE bind:24 - binding parameter (1:VARCHAR) <- [STU-6789]
-22:43:38,074 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,074 TRACE bind:24 - binding parameter (1:VARCHAR) <- [VWX-0123]
-22:43:38,075 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,075 TRACE bind:24 - binding parameter (1:VARCHAR) <- [YZA-4567]
-22:43:38,077 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,077 TRACE bind:24 - binding parameter (1:VARCHAR) <- [BCD-8901]
-22:43:38,078 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,078 TRACE bind:24 - binding parameter (1:VARCHAR) <- [EFG-2345]
-22:43:38,079 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,080 TRACE bind:24 - binding parameter (1:VARCHAR) <- [HIJ-6789]
-22:43:38,081 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,081 TRACE bind:24 - binding parameter (1:VARCHAR) <- [KLM-0123]
-22:43:38,082 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,082 TRACE bind:24 - binding parameter (1:VARCHAR) <- [NOP-4567]
-22:43:38,083 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,083 TRACE bind:24 - binding parameter (1:VARCHAR) <- [QRS-8901]
-22:43:38,084 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,084 TRACE bind:24 - binding parameter (1:VARCHAR) <- [TUV-2345]
-22:43:38,085 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,085 TRACE bind:24 - binding parameter (1:VARCHAR) <- [WXY-6789]
-22:43:38,086 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,086 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ZAB-0123]
-22:43:38,087 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,087 TRACE bind:24 - binding parameter (1:VARCHAR) <- [CDE-4567]
-22:43:38,088 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
-22:43:38,088 TRACE bind:24 - binding parameter (1:VARCHAR) <- [FGH-8901]
-22:43:43,697  INFO Util:69 - ----desconectar banco
-22:43:43,698  INFO pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/estacionamento]
+12:39:03,230  INFO Util:28 - ----conectar banco - lendo arquivo de propriedades 
+12:39:03,234  INFO Util:33 - sgbd => postgresql
+12:39:03,234  INFO Util:34 - banco => estacionamento
+12:39:03,234  INFO Util:35 - ip => localhost
+12:39:03,234  INFO Util:40 - ----configurando postgresql
+12:39:03,258 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+12:39:03,377  INFO LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: hibernate-postgresql]
+12:39:03,435  INFO Version:44 - HHH000412: Hibernate ORM core version 6.5.2.Final
+12:39:03,473 DEBUG RegionFactoryInitiator:122 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+12:39:03,474  INFO RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+12:39:03,720  WARN pooling:81 - HHH10001002: Using built-in connection pool (not intended for production use)
+12:39:03,724  INFO pooling:136 - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+12:39:03,725  INFO pooling:158 - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/estacionamento]
+12:39:03,725  INFO pooling:167 - HHH10001001: Connection properties: {password=****, user=postgres}
+12:39:03,725  INFO pooling:171 - HHH10001003: Autocommit mode: false
+12:39:03,728  INFO pooling:372 - HHH10001115: Connection pool size: 20 (min=1)
+12:39:05,054  INFO JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:39:05,073  INFO access:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6fa02932] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+12:39:05,099 DEBUG SQL:135 - create table Arrecadacao (id integer generated by default as identity, data varchar(255), total float(53) not null, primary key (id))
+12:39:05,109 DEBUG SQL:135 - create table Registro (id integer generated by default as identity, datahora timestamp(6), tipo varchar(255), veiculo_placa varchar(255), primary key (id))
+12:39:05,117 DEBUG SQL:135 - create table Veiculo (placa varchar(255) not null, primary key (placa))
+12:39:05,122 DEBUG SQL:135 - alter table if exists Registro add constraint FKnxd9ejfmn58xntnhtuwt21ms8 foreign key (veiculo_placa) references Veiculo
+12:39:05,472 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,487 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC-1234]
+12:39:05,519 DEBUG SQL:135 - insert into Veiculo (placa) values (?)
+12:39:05,519 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC-1234]
+12:39:05,519 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,519 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF-5678]
+12:39:05,519 DEBUG SQL:135 - insert into Veiculo (placa) values (?)
+12:39:05,519 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF-5678]
+12:39:05,519 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,519 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI-9012]
+12:39:05,519 DEBUG SQL:135 - insert into Veiculo (placa) values (?)
+12:39:05,519 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI-9012]
+12:39:05,534 DEBUG SQL:135 - select a1_0.id,a1_0.data,a1_0.total from Arrecadacao a1_0 where a1_0.data=?
+12:39:05,534 TRACE bind:24 - binding parameter (1:VARCHAR) <- [25/09/2024]
+12:39:05,534 DEBUG SQL:135 - insert into Arrecadacao (data,total) values (?,?) returning id
+12:39:05,534 TRACE bind:24 - binding parameter (1:VARCHAR) <- [25/09/2024]
+12:39:05,534 TRACE bind:24 - binding parameter (2:DOUBLE) <- [0.0]
+12:39:05,550 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,550 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC-1234]
+12:39:05,550 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,562 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC-1234]
+12:39:05,562 DEBUG SQL:135 - delete from Veiculo where placa=?
+12:39:05,562 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC-1234]
+12:39:05,562 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,562 TRACE bind:24 - binding parameter (1:VARCHAR) <- [ABC-1234]
+12:39:05,562 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,562 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF-5678]
+12:39:05,562 DEBUG SQL:135 - select a1_0.id,a1_0.data,a1_0.total from Arrecadacao a1_0 where a1_0.data=?
+12:39:05,562 TRACE bind:24 - binding parameter (1:VARCHAR) <- [25/09/2024]
+12:39:05,562 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,562 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF-5678]
+12:39:05,577 DEBUG SQL:135 - insert into Registro (datahora,tipo,veiculo_placa) values (?,?,?) returning id
+12:39:05,577 TRACE bind:24 - binding parameter (1:TIMESTAMP) <- [2024-09-25T12:39:05.562297]
+12:39:05,577 TRACE bind:24 - binding parameter (2:VARCHAR) <- [entrada]
+12:39:05,577 TRACE bind:24 - binding parameter (3:VARCHAR) <- [DEF-5678]
+12:39:05,577 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,577 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF-5678]
+12:39:05,577 DEBUG SQL:135 - select a1_0.id,a1_0.data,a1_0.total from Arrecadacao a1_0 where a1_0.data=?
+12:39:05,577 TRACE bind:24 - binding parameter (1:VARCHAR) <- [25/09/2024]
+12:39:05,577 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,593 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI-9012]
+12:39:05,593 DEBUG SQL:135 - select a1_0.id,a1_0.data,a1_0.total from Arrecadacao a1_0 where a1_0.data=?
+12:39:05,593 TRACE bind:24 - binding parameter (1:VARCHAR) <- [25/09/2024]
+12:39:05,593 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,593 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI-9012]
+12:39:05,593 DEBUG SQL:135 - select a1_0.id,a1_0.data,a1_0.total from Arrecadacao a1_0 where a1_0.data=?
+12:39:05,593 TRACE bind:24 - binding parameter (1:VARCHAR) <- [25/09/2024]
+12:39:05,593 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,593 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI-9012]
+12:39:05,593 DEBUG SQL:135 - insert into Registro (datahora,tipo,veiculo_placa) values (?,?,?) returning id
+12:39:05,593 TRACE bind:24 - binding parameter (1:TIMESTAMP) <- [2024-09-25T12:39:05.562297]
+12:39:05,593 TRACE bind:24 - binding parameter (2:VARCHAR) <- [entrada]
+12:39:05,593 TRACE bind:24 - binding parameter (3:VARCHAR) <- [DEF-5678]
+12:39:05,593 DEBUG SQL:135 - insert into Registro (datahora,tipo,veiculo_placa) values (?,?,?) returning id
+12:39:05,593 TRACE bind:24 - binding parameter (1:TIMESTAMP) <- [2024-09-25T12:39:05.593560700]
+12:39:05,593 TRACE bind:24 - binding parameter (2:VARCHAR) <- [entrada]
+12:39:05,593 TRACE bind:24 - binding parameter (3:VARCHAR) <- [GHI-9012]
+12:39:05,593 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,593 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI-9012]
+12:39:05,593 DEBUG SQL:135 - select a1_0.id,a1_0.data,a1_0.total from Arrecadacao a1_0 where a1_0.data=?
+12:39:05,593 TRACE bind:24 - binding parameter (1:VARCHAR) <- [25/09/2024]
+12:39:05,609 DEBUG SQL:135 - select a1_0.id,a1_0.data,a1_0.total from Arrecadacao a1_0 where a1_0.data=?
+12:39:05,609 TRACE bind:24 - binding parameter (1:VARCHAR) <- [01/01/1977]
+12:39:05,609 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,609 TRACE bind:24 - binding parameter (1:VARCHAR) <- [GHI-9012]
+12:39:05,609 DEBUG SQL:135 - insert into Registro (datahora,tipo,veiculo_placa) values (?,?,?) returning id
+12:39:05,609 TRACE bind:24 - binding parameter (1:TIMESTAMP) <- [2024-09-25T12:39:05.593560700]
+12:39:05,609 TRACE bind:24 - binding parameter (2:VARCHAR) <- [entrada]
+12:39:05,609 TRACE bind:24 - binding parameter (3:VARCHAR) <- [GHI-9012]
+12:39:05,609 DEBUG SQL:135 - select r1_0.id,r1_0.datahora,r1_0.tipo,r1_0.veiculo_placa from Registro r1_0 where r1_0.id=?
+12:39:05,609 TRACE bind:24 - binding parameter (1:INTEGER) <- [3]
+12:39:05,624 DEBUG SQL:135 - select v1_0.placa from Veiculo v1_0 where v1_0.placa=?
+12:39:05,624 TRACE bind:24 - binding parameter (1:VARCHAR) <- [DEF-5678]
+12:39:05,624  INFO Util:69 - ----desconectar banco
+12:39:05,624  INFO pooling:607 - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/estacionamento]

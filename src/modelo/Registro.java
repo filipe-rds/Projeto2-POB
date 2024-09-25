@@ -2,11 +2,7 @@ package modelo;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 
 @Entity
@@ -16,7 +12,7 @@ public class Registro {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private LocalDateTime datahora;
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Veiculo veiculo;
 	private String tipo; // entrada ou saida do veiculo
 	

@@ -30,21 +30,41 @@ public class Fachada {
 
     /*  
         --> Método para cadastrar um novo veículo no sistema de estacionamento.
-        Fluxo: ele cria um novo veículo com a placa informada e o adiciona ao banco de dados.
-        Exceções: se o veículo já estiver cadastrado, lança uma exceção.
+        Fluxo:
+            - Valida se a placa informada está no formato brasileiro, aceitando tanto o padrão antigo (ABC-1234) quanto o padrão Mercosul (ABC1D23) usando expressão regular.
+            - Se a placa for válida, verifica se o veículo com essa placa já está cadastrado no banco de dados.
+            - Caso não exista, cria um novo veículo com a placa informada e o adiciona ao banco de dados.
+        Exceções:
+            - Lança uma exceção se a placa estiver em um formato inválido.
+            - Lança uma exceção se o veículo já estiver cadastrado.
         Retorno: retorna o veículo cadastrado.
     */
+
     public static Veiculo cadastrarVeiculo(String placa) throws Exception {
+
+        // Expressão regular para validar o formato de placa brasileira (antigo e Mercosul)
+        String regex = "^([A-Z]{3}-[0-9]{4})|([A-Z]{3}[0-9]{1}[A-Z]{1}[0-9]{2})$";
+
+        // Verificar se a placa está no formato correto
+        if (!placa.matches(regex)) {
+            throw new Exception("Formato de placa inválido. Use o formato ABC-1234 ou ABC1D23.");
+        }
+
         DAO.begin();
         Veiculo veiculo = daoveiculo.read(placa);
+
         if (veiculo != null)
-            throw new Exception("Veiculo ja cadastrado:" + placa);
+            throw new Exception("Veículo já cadastrado: " + placa);
+
         veiculo = new Veiculo(placa);
+
         daoveiculo.create(veiculo);
         DAO.commit();
+
         return veiculo;
     }
-    
+
+
     /*
      * --> Método para adicionar um registro a um veículo cadastrado.
      * Fluxo: ele busca o veículo com a placa informada e adiciona o registro a ele.
@@ -64,7 +84,7 @@ public class Fachada {
 
     }
 
-    /*  
+    /*
         --> Método para remover um registro de um veículo cadastrado.
         Fluxo: ele busca o veículo com a placa informada e remove o registro dele.
         Exceções: se o veículo não existir, lança uma exceção.
@@ -81,7 +101,7 @@ public class Fachada {
         daoveiculo.update(veiculo);
         DAO.commit();
     }
-    
+
     /*  
         --> Método para excluir um veículo do sistema de estacionamento.
         Fluxo: ele busca o veículo com a placa informada e o exclui do banco de dados.
@@ -131,12 +151,16 @@ public class Fachada {
         Exceções: se o veículo não existir, lança uma exceção.
         Retorno: retorna o veículo buscado.
     */
-    public static Veiculo buscarVeiculo(String placa) throws Exception{
+    public static Veiculo buscarVeiculo(String placa) throws Exception {
         Veiculo veiculo = daoveiculo.read(placa);
-        if(veiculo==null)
+        if (veiculo == null)
             throw new Exception("Veiculo nao existe:" + placa);
         return veiculo;
 
+    }
+
+    public static void atualizarVeiculo(Veiculo veiculo) {
+        daoveiculo.update(veiculo);
     }
 
     //CRUD Registro
@@ -222,7 +246,7 @@ public class Fachada {
         }
         Veiculo veiculo = registro.getVeiculo();
         String placa = veiculo.getPlaca();
-        Fachada.removerRegistroVeiculo(placa,registro);
+        //Fachada.removerRegistroVeiculo(placa,registro);
         daoaregistro.delete(registro);
         DAO.commit();
     }
@@ -247,31 +271,49 @@ public class Fachada {
         Exceções: se o registro não existir, lança uma exceção.
         Retorno: retorna o registro buscado.
     */
-    public static Registro buscarRegistro(Integer id) throws Exception{
+    public static Registro buscarRegistro(Integer id) throws Exception {
 
         Registro registro = daoaregistro.read(id);
-        if(registro==null)
+        if (registro == null)
             throw new Exception("Registro nao existe:" + id);
 
         return registro;
 
+    }
+    
+    public static void atualizarRegistro(Registro registro) {
+        daoaregistro.update(registro);
     }
 
     //CRUD Arrecadacao
 
     /*  
         --> Método para cadastrar uma nova arrecadação no sistema de estacionamento.
-        Fluxo: ele cria uma nova arrecadação com a data informada e a adiciona ao banco de dados.
-        Exceções: se a arrecadação já estiver cadastrada, lança uma exceção.
+        Fluxo:
+            - Valida se a data informada está no formato brasileiro (dd/MM/yyyy) usando expressão regular.
+            - Se a data for válida, verifica se a arrecadação com essa data já está cadastrada no banco de dados.
+            - Caso não exista, cria uma nova arrecadação com a data informada e a adiciona ao banco de dados.
+        Exceções:
+            - Lança uma exceção se a data estiver em um formato inválido.
+            - Lança uma exceção se a arrecadação já estiver cadastrada.
         Retorno: retorna a arrecadação cadastrada.
     */
+
     public static Arrecadacao cadastrarArrecadacao(String data) throws Exception {
+
+        // Expressão regular para validar o formato de data brasileira (dd/MM/yyyy)
+        String regex = "^([0-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/([0-9]{4})$";
+
+        // Verificar se a string está no formato de data brasileira
+        if (!data.matches(regex)) {
+            throw new Exception("Formato de data inválido. Use o formato dd/MM/yyyy.");
+        }
 
         DAO.begin();
         Arrecadacao arrecadacao = daoarrecadacao.read(data);
 
         if (arrecadacao != null)
-            throw new Exception("Arrecadação já cadastrada:" + data);
+            throw new Exception("Arrecadação já cadastrada: " + data);
 
         arrecadacao = new Arrecadacao(data);
 
@@ -279,8 +321,8 @@ public class Fachada {
 
         DAO.commit();
         return arrecadacao;
-
     }
+
 
     /*  
         --> Método para alterar o valor total de uma arrecadação.
@@ -336,10 +378,14 @@ public class Fachada {
         Exceções: se a arrecadação não existir, lança uma exceção.
         Retorno: retorna a arrecadação buscada.
     */
-    public static Arrecadacao buscarArrecadacao(String dataString) throws Exception{
+    public static Arrecadacao buscarArrecadacao(String dataString) throws Exception {
         DAO.begin();
         Arrecadacao arrecadacao = daoarrecadacao.read(dataString);
         return arrecadacao;
+    }
+    
+    public static void atualizarArrecadacao(Arrecadacao arrecadacao) {
+        daoarrecadacao.update(arrecadacao);
     }
 
 

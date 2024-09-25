@@ -22,8 +22,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 
 import modelo.Arrecadacao;
 import regras_negocio.Fachada;
@@ -159,20 +158,14 @@ public class TelaArrecadacao {
                 try {
                     if (table.getSelectedRow() >= 0) {
 
-                        // Obter o valor da célula, assumindo que é um LocalDate
-                        LocalDate data = (LocalDate) table.getValueAt(table.getSelectedRow(), 0);
+                        // Obter o valor da célula, assumindo que é uma String
+                        String dataString = (String) table.getValueAt(table.getSelectedRow(), 0);
 
-                        // Definir um formatador para converter LocalDate em String
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-                        // Converter LocalDate para String
-                        String dataString = data.format(formatter);
                         Fachada.excluirArrecadacao(dataString);
-                        label.setText("Arrecadação excluída: " + data);
+                        label.setText("Arrecadação excluída: " + dataString);
                         listagem();
                     } else
                         label.setText("Nenhuma arrecadação selecionada");
-                        listagem();
                 } catch (Exception ex) {
                     label.setText(ex.getMessage());
                 }

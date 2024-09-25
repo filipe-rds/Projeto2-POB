@@ -10,7 +10,7 @@ public class Veiculo {
     @Id
     private String placa;
 
-    @OneToMany(mappedBy="veiculo", cascade={CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy="veiculo", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Registro> registros = new ArrayList<>();
 
     public Veiculo(String placa) {
