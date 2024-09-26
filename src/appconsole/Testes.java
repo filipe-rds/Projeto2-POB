@@ -22,8 +22,8 @@ public class Testes {
         String placa2 = "DEF5678";
         String placa3 = "GHI9012";
 
-        LocalDateTime dataAtual = LocalDateTime.now();
-        String dataString = dataAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        
+        String dataString = "10/10/2010"
 
         try {
             // Cadastro de veículos
@@ -100,16 +100,22 @@ public class Testes {
 
         // Excluir veículos restantes após os testes
         try {
-            ArrayList <Registro> vazio = new ArrayList<>();
             Veiculo v3 = Fachada.buscarVeiculo(placa3);
-            v3.setRegistros(vazio);
-            
+            if (v3 != null) {
+                for (Registro r : v3.getRegistros()) {
+                    Fachada.excluirRegistro(r);  // Método para excluir registros individuais
+                }
+                Fachada.excluirVeiculo(placa3);  // Agora pode excluir o veículo
+            }
+        
             Veiculo v2 = Fachada.buscarVeiculo(placa2);
-            v2.setRegistros(null);
-
-            Fachada.excluirVeiculo(placa3);
-            Fachada.excluirVeiculo(placa2);
-
+            if (v2 != null) {
+                for (Registro r : v2.getRegistros()) {
+                    Fachada.excluirRegistro(r);  // Excluir registros antes de remover o veículo
+                }
+                Fachada.excluirVeiculo(placa2);
+            }
+        
             Fachada.excluirArrecadacao(dataString); 
             System.out.println("Dados gerados excluídos com sucesso.");
         } catch (Exception e) {
