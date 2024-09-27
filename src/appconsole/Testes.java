@@ -2,14 +2,7 @@ package appconsole;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
-/**
- * Teste da Fachada
- */
-
 import regras_negocio.Fachada;
-import modelo.*;
 
 public class Testes {
 
@@ -18,12 +11,13 @@ public class Testes {
         Fachada.inicializar();
 
         // Dados para teste
-        String placa1 = "ABC1234";
-        String placa2 = "DEF5678";
-        String placa3 = "GHI9012";
+        String placa1 = "ABB-1234";
+        String placa2 = "BCC-5678";
+        String placa3 = "CDD-9012";
 
-        
-        String dataString = "10/10/2010"
+
+        LocalDateTime dataAtual = LocalDateTime.now();
+        String dataString = dataAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         try {
             // Cadastro de veículos
@@ -96,30 +90,6 @@ public class Testes {
             System.out.println("*************7--->Não lançou exceção para: excluir arrecadação inexistente.");
         } catch (Exception e) {
             System.out.println("7. ok---> " + e.getMessage());
-        }
-
-        // Excluir veículos restantes após os testes
-        try {
-            Veiculo v3 = Fachada.buscarVeiculo(placa3);
-            if (v3 != null) {
-                for (Registro r : v3.getRegistros()) {
-                    Fachada.excluirRegistro(r);  // Método para excluir registros individuais
-                }
-                Fachada.excluirVeiculo(placa3);  // Agora pode excluir o veículo
-            }
-        
-            Veiculo v2 = Fachada.buscarVeiculo(placa2);
-            if (v2 != null) {
-                for (Registro r : v2.getRegistros()) {
-                    Fachada.excluirRegistro(r);  // Excluir registros antes de remover o veículo
-                }
-                Fachada.excluirVeiculo(placa2);
-            }
-        
-            Fachada.excluirArrecadacao(dataString); 
-            System.out.println("Dados gerados excluídos com sucesso.");
-        } catch (Exception e) {
-            System.out.println("Erro ao excluir dados gerados--->" + e.getMessage());
         }
 
         // Finalizar a Fachada
